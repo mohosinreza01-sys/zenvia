@@ -24,6 +24,14 @@ type PageProps = {
     params: Promise<{ id: string }>;
 };
 
+
+export function generateStaticParams() {
+    return properties.map((property) => ({
+        id: String(property.id),
+    }));
+}
+
+
 export default async function PropertyDetailsPage({ params }: PageProps) {
     const { id } = await params;
 
